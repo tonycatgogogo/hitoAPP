@@ -2,7 +2,7 @@
     <div class="container">
         <div>
             <!--顶部通栏-->
-            <mt-header fixed title="Hito商城"></mt-header>
+            <mt-header fixed title="Hito商城" class="header"></mt-header>
             <!--中间预留区域-->
             <router-view></router-view>
             <!--底部tabbar-->
@@ -35,8 +35,16 @@
 </script>
 <style lang="scss" scoped>
     .container {
-        padding-top: 40px;
+        position: relative;
         overflow-x: hidden;
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 40px;
+            width: 100%;
+            z-index: 999;
+        }
     }
 </style>
 		

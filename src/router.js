@@ -18,7 +18,8 @@ let router = new VueRouter({
     {path: '/cart', component: CartContainer},
     {path: '/search', component: SearchContainer},
     {path: '/member', component: MemberContainer}
-  ]
+  ],
+  linkActiveClass: 'mui-active'
 });
 
 export default router
