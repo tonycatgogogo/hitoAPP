@@ -21,7 +21,7 @@ let router = new VueRouter({
     {path: '/search', component: SearchContainer},
     {path: '/member', component: MemberContainer},
     {path: '/home/newslist', component: NewsList},
-    {path: '/member/newsinfo/:id', component: NewsInfo},
+    {path: '/home/newsinfo', component: NewsInfo}
   ],
   linkActiveClass: 'mui-active'
 });

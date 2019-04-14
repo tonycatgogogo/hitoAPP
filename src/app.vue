@@ -40,6 +40,7 @@
         overflow-x: hidden;
         padding-top: 40px;
         padding-bottom: 50px;
+        background-color: #fff;
         .header {
             position: fixed;
             top: 0;
