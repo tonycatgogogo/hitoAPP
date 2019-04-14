@@ -18,15 +18,22 @@ Vue.use(VueResource)
 //设置请求根路径
 
 Vue.http.options.root = 'http://vue.studyit.io'
+Vue.http.options.emulateJSON = true
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
-import {Header, Swipe, SwipeItem, Button} from 'mint-ui'
+// import {Header, Swipe, SwipeItem, Button} from 'mint-ui'
+//
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import  'mint-ui/lib/style.css'
 
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
-
+//图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 import router from './router.js'
 
 import app from './app.vue'

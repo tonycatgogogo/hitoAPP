@@ -12,6 +12,9 @@ import SearchContainer from './components/tabbar/searchCompotent.vue'
 import MemberContainer from './components/tabbar/memberCompotent.vue'
 import NewsList from './components/news/NewsList.vue'
 import NewsInfo from './components/news/NewsInfo.vue'
+import NewsInfo from './components/news/NewsInfo.vue'
+import NewsInfo from './components/news/NewsInfo.vue'
+import NewsInfo from './components/news/NewsInfo.vue'
 //创建路由对象
 let router = new VueRouter({
   routes: [
