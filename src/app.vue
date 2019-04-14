@@ -4,7 +4,9 @@
             <!--顶部通栏-->
             <mt-header fixed title="Hito商城" class="header"></mt-header>
             <!--中间预留区域-->
-            <router-view></router-view>
+            <transition mode="out-in">
+                <router-view></router-view>
+            </transition>
             <!--底部tabbar-->
             <nav class="mui-bar mui-bar-tab">
                 <router-link class="mui-tab-item" to="/home">
@@ -35,8 +37,9 @@
 </script>
 <style lang="scss" scoped>
     .container {
-        position: relative;
         overflow-x: hidden;
+        padding-top: 40px;
+        padding-bottom: 50px;
         .header {
             position: fixed;
             top: 0;
@@ -45,6 +48,22 @@
             width: 100%;
             z-index: 999;
         }
+    }
+
+    .v-enter {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    .v-leave-to {
+        opacity: 0;
+        transform: translateX(-100%);
+        position: absolute;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.3s ease
     }
 </style>
 		
