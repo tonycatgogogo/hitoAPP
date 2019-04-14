@@ -2,9 +2,9 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="请输入要BB的内容（做多吐槽120字）" maxlength="120"></textarea>
+        <textarea placeholder="请输入要BB的内容（做多吐槽120字）" maxlength="120" v-model="msg"></textarea>
 
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
 
         <div class="cmt-list">
             <div class="cmt-item">
@@ -87,7 +87,8 @@
     data() {
       return {
         pageIndex: 1, // 默认展示第一页数据
-        comments: [] // 所有的评论数据
+        comments: [], // 所有的评论数据
+        msg: ''
       };
     },
     created() {
@@ -113,9 +114,27 @@
 //        this.pageIndex++;
 //        this.getComments();
         Toast('想加载，但是请求不到数据')
+      },
+      postComment() {
+        if (this.msg.trim().length === 0) {
+          return Toast("评论内容不能为空！")
+        }
+        this.$http.post("api/postcomment/" + this.$route.params.id, {
+          content: this.msg.trim()
+        }).then(result => {
+          if (result.body.status === 0) {
+            let cmt = {
+              user_name: '匿名用户',
+              add_time: Date.now(),
+              content: this.msg.content.trim()
+            }
+            this.comments.unshift(cmt)
+            this.msg = ''
+          }
+        })
       }
     },
-//    props: ["id"]
+    props: ["id"]
   };
 </script>
 
