@@ -15,6 +15,9 @@ import NewsInfo from './components/news/NewsInfo.vue'
 import PhotoList from './components/photos/PhotoList.vue'
 import PhotoInfo from './components/photos/PhotoInfo.vue'
 import GoodsList from './components/Goods/GoodsList.vue'
+import GoodsInfo from './components/Goods/GoodsInfo.vue'
+import GoodsDesc from './components/Goods/GoodsDesc.vue'
+import GoodsComment from './components/Goods/GoodsComment.vue'
 //创建路由对象
 let router = new VueRouter({
   routes: [
@@ -24,10 +27,13 @@ let router = new VueRouter({
     {path: '/search', component: SearchContainer},
     {path: '/member', component: MemberContainer},
     {path: '/home/newslist', component: NewsList},
-    {path: '/home/newsinfo', component: NewsInfo},
+    {path: '/home/newsinfo/:id', component: NewsInfo},
     {path: '/home/photolist', component: PhotoList},
     {path: '/home/photoinfo/:id', component: PhotoInfo},
     {path: '/home/goodslist', component: GoodsList},
+    {path: '/home/goodsinfo/:id', component: GoodsInfo, name: 'goodsinfo'},
+    {path: '/home/goodsdesc/:id', component: GoodsDesc, name: 'goodsdesc'},
+    {path: '/home/goodscomment/:id', component: GoodsComment, name: 'goodscomment'},
   ],
   linkActiveClass: 'mui-active'
 });

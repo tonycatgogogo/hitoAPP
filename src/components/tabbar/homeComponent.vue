@@ -1,11 +1,7 @@
 <template>
     <div class="banner">
         <!--轮播图-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in imagesList" :key="item.id">
-                <img :src="item.src" alt="...">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :lunbotuList="imagesList" :isfull="true"></swiper>
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newslist">
@@ -46,7 +42,8 @@
 </template>
 
 <script>
-  //  import {Toast} from 'mint-ui';
+  import {Toast} from 'mint-ui';
+  import swiper from '../subcomponents/swiper.vue'
   export default {
     data() {
       return {
@@ -63,24 +60,25 @@
       }
     },
     created(){
-
     },
-    methods: {}
+    methods: {
+//      getImageList(){
+//        this.$http.get("api/getlunbo").then(result =>{
+//          if(result.body.status === 0) {
+//            this.imagesList = result.body.message
+//          }else {
+//            Toast("加载失败")
+//          }
+//        })
+//      }
+    },
+    components: {
+      swiper
+    }
   }
 </script>
 
 <style lang="scss" scoped>
-    .mint-swipe {
-        height: 155.55px;
-        .mint-swipe-item {
-            display: block;
-            img {
-                width: 100%;
-                display: block;
-            }
-        }
-    }
-
     .mui-grid-view.mui-grid-9 {
         background: #fff;
         border: none;
