@@ -2,7 +2,11 @@
     <div class="container">
         <div>
             <!--顶部通栏-->
-            <mt-header fixed title="Hito商城" class="header"></mt-header>
+            <mt-header fixed title="Hito商城" class="header">
+                <span slot="left" @click="goBack" v-show="flag">
+                    <mt-button icon="back">返回</mt-button>
+                </span>
+            </mt-header>
             <!--中间预留区域-->
             <transition mode="out-in">
                 <router-view></router-view>
@@ -33,7 +37,34 @@
 
 </template>
 <script>
-
+  export default {
+    data() {
+      return {
+        flag: false
+      }
+    },
+    methods: {
+      goBack() {
+        this.$router.go(-1)
+      }
+    },
+    created() {
+      if (this.$route.path === '/home') {
+        this.flag = false
+      } else {
+        this.flag = true
+      }
+    },
+    watch: {
+      "$route.path": function (newVal) {
+        if (newVal === "/home") {
+          this.flag = false
+        } else {
+          this.flag = true
+        }
+      }
+    }
+  }
 </script>
 <style lang="scss" scoped>
     .container {
